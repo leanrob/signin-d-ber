@@ -1,0 +1,23 @@
+{
+  "name": "signin-d-ber",
+  "version": "0.0.1",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://leanrob@github.com/leanrob/signin-d-ber.git"
+  },
+  "author": "Rob Byrne",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leanrob/signin-d-ber/issues"
+  },
+  "homepage": "https://github.com/leanrob/signin-d-ber#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
