@@ -16,7 +16,7 @@ var router = function() {
     authRouter.route('/signUp')
         .post(function(req, res) {
             console.log(req.body);
-            var url = 'mongodb://localhost:27017/eventsApp';
+            var url = 'mongodb://leanrob:elbatl00P@ds017582.mlab.com:17582/duber-rob-byrne';
             mongodb.connect(url, function(err, db) {
                 var collection = db.collection('users');
                 // TODO: Change with full user when it is created
