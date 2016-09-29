@@ -1,1 +1,1 @@
-web: gulp serve && mongod
+web: gulp serve
