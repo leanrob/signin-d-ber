@@ -6,7 +6,7 @@ var session = require('express-session');
 
 var app = express();
 
-var port = Number(process.env.PORT) || 1337;
+var port = process.env.PORT || 1337;
 
 var nav = [{
     Link: '/resume',
