@@ -24,6 +24,7 @@
     "passport-local": "^1.0.0"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
     "gulp": "^3.9.1",
     "gulp-inject": "^4.1.0",
     "gulp-jscs": "^4.0.0",

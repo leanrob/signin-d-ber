@@ -157,6 +157,24 @@ a,a:hover {
   padding:6px;
   color:#fff;
 }
+
+.signin {
+     padding: 20px;
+     margin: 20px;
+     background-color: #c8e5bc;
+     border-color: #c8e5bc;
+     border-width: 3px;
+     border-radius: 10px;
+ }
+
+.signup {
+    padding: 20px;
+    margin: 20px;
+    background-color: #c8e5bc;
+    border-color: #c8e5bc;
+    border-width: 3px;
+    border-radius: 10px;
+}
     
 .btn-twitter {background-color:#4099FF;color:#fff;}
 .btn-facebook {background-color:#3B5998;color:#fff;}

@@ -2,40 +2,40 @@
  * Created by robert on 2016-09-28.
  */
 
-var should   = require("should");
-var app      = require("../server");
-var mongoose = require("mongoose");
-var User     = mongoose.model("User");
-var request  = require("supertest");
-var agent = request.agent(app)
-
-describe('User', function () {
-    before(function(done) {
-        user = new User({
-            email    : "user@user.com",
-            firstName: "Full Name",
-            lastName : "Last Name",
-            password : "pass11"
-        });
-        user.save(done)
-    });
-    describe('Login test', function () {
-        it('should redirect to /', function (done) {
-            agent
-                .post('/users/session')
-                .field('email', 'user@user.com')
-                .field('password', 'pass11')
-                .expect('Location','/')
-                .end(done)
-        })
-
-        after(function(done) {
-            User.remove().exec();
-            return done();
-        });
-
-    })
-})
+// var should   = require("should");
+// var app      = require("../server");
+// var mongoose = require("mongoose");
+// var User     = mongoose.model("User");
+// var request  = require("supertest");
+// var agent = request.agent(app)
+//
+// describe('User', function () {
+//     before(function(done) {
+//         user = new User({
+//             email    : "user@user.com",
+//             firstName: "Full Name",
+//             lastName : "Last Name",
+//             password : "pass11"
+//         });
+//         user.save(done)
+//     });
+//     describe('Login test', function () {
+//         it('should redirect to /', function (done) {
+//             agent
+//                 .post('/users/session')
+//                 .field('email', 'user@user.com')
+//                 .field('password', 'pass11')
+//                 .expect('Location','/')
+//                 .end(done)
+//         })
+//
+//         after(function(done) {
+//             User.remove().exec();
+//             return done();
+//         });
+//
+//     })
+// })
 
 
 

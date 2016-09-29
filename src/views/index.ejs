@@ -1,139 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-		<meta charset="utf-8">
-		<title>Rob Byrne - Sign Up Coding Challange</title>
-		<meta name="generator" content="Bootply" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-        <!-- bower:css -->
-        <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css" />
-        <!-- endbower -->
-        <!-- bower:js -->
-        <script src="/lib/jquery/dist/jquery.js"></script>
-        <script src="/lib/bootstrap/dist/js/bootstrap.js"></script>
-        <!-- endbower -->
-        <!-- inject:css -->
-        <link rel="stylesheet" href="/css/styles.css">
-        <!-- endinject -->
-        <!-- inject:js -->
-        <script src="/js/app.js"></script>
-        <!-- endinject -->
-		<!--[if lt IE 9]>
-			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
-		<link href="css/styles.css" rel="stylesheet">
-	</head>
-	<body>
-    <header class="navbar navbar-bright navbar-fixed-top" role="banner">
-      <div class="container">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Rob Byrne - Sign Up Coding Challange</title>
+    <meta name="generator" content="Bootply" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- bower:css -->
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css" />
+    <!-- endbower -->
+    <!-- bower:js -->
+    <script src="/lib/jquery/dist/jquery.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <!-- endbower -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/css/styles.css">
+    <!-- endinject -->
+    <!-- inject:js -->
+    <script src="/js/app.js"></script>
+    <!-- endinject -->
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+<header class="navbar navbar-bright navbar-fixed-top" role="banner">
+    <div class="container">
         <div class="navbar-header">
-          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a href="/" class="navbar-brand">Rob Byrne - Düber</a>
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand">Rob Byrne - Düber</a>
         </div>
 
         <!-- Navigatio Section -->
         <nav class="collapse navbar-collapse" role="navigation">
-          <ul class="nav navbar-nav">
-            <% for (var i=0; i<nav.length; i++) { %>
-              <li><a href="<%=nav[i].Link%>"><%=nav[i].Text%></a></li>
-            <% } %>
-          </ul>
-          <ul class="nav navbar-right navbar-nav">
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-search"></i></a>
-              <ul class="dropdown-menu" style="padding:12px;">
-                <form class="form-inline">
-                  <button type="submit" class="btn btn-default pull-right"><i class="glyphicon glyphicon-search"></i></button><input type="text" class="form-control pull-left" placeholder="Search">
-                </form>
-              </ul>
-            </li>
-          </ul>
+            <ul class="nav navbar-nav">
+                <% for (var i=0; i<nav.length; i++) { %>
+                <li><a href="<%=nav[i].Link%>"><%=nav[i].Text%></a></li>
+                <% } %>
+            </ul>
+            <ul class="nav navbar-right navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-search"></i></a>
+                    <ul class="dropdown-menu" style="padding:12px;">
+                        <form class="form-inline">
+                            <button type="submit" class="btn btn-default pull-right"><i class="glyphicon glyphicon-search"></i></button><input type="text" class="form-control pull-left" placeholder="Search">
+                        </form>
+                    </ul>
+                </li>
+            </ul>
         </nav>
-      </div>
-    </header>
-
-    <div id="masthead">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-7">
-            <h1>Sign In / Sign Up
-              <p class="lead"></p>
-            </h1>
-          </div>
-          <div class="col-md-5">
-            <div class="well well-lg">
-              <div class="row">
-                <div class="col-sm-12">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div><!-- /cont -->
-
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="top-spacer"> </div>
-          </div>
-        </div>
-      </div><!-- /cont -->
     </div>
+</header>
+
+<div id="masthead">
     <div class="container">
-      <div class="row">
+        <div class="row">
+            <div class="col-md-7">
+                <h1>Sign In / Sign Up
+                    <p class="lead"></p>
+                </h1>
+            </div>
+            <div class="col-md-5">
+                <div class="well well-lg">
+                    <div class="row">
+                        <div class="col-sm-12">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- /cont -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="top-spacer"> </div>
+            </div>
+        </div>
+    </div><!-- /cont -->
+</div>
+<div class="container">
+    <div class="row">
 
         <div class="col-md-12">
 
-          <div class="panel">
-            <div class="panel-body">
-              <!--/stories-->
-              <div class="row">
-                <br>
-                <div class="col-md-2 col-sm-3 text-center">
-                    Sign In
-                    <form name="signInForm" action="/auth/signIn" method="post">
-                      Username: <input name="userName" id="userName">
-                      Password: <input name="password" id="password">
-                      <input type="submit" value="Sign in">
-                    </form>
+            <div class="panel">
+                <div class="panel-body">
+                    <div class="row">
+                        <br>
+                        <div class="col-lg-12 text-center">
+                            <h1>Düber Coding Challenge!</h1>
+                            <h3>Hey Düber Team!</h3>
+                            <br>
+                            <p>Thanks for taking a look at my app. I look forward to meeting you all soon.</p>
+                            <p>For more information check out my github repository</p>
+                            <a href="https://www.github.com/leanrob">leanrob</a>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <br>
+                        <div class="col-md-8 col-sm-7 signin">
+                            <h2>Sign In</h2>
+                            <p>Please enter a unername and password to sign in.</p>
+                            <form name="signInForm" action="/auth/signIn" method="post">
+                                Username: <input name="userName" id="userName">
+                                Password: <input name="password" id="password">
+                                <input type="submit" value="Sign in">
+                            </form>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <br>
+                        <div class="col-md-8 col-sm-7 signup">
+                            <h2>Sign Up</h2>
+                            <p>Dont have an account already? Sign up below to see my resume.</p>
+                            <form name="signUpForm" action="/auth/signUp" method="post">
+                                Username: <input name="userName" id="userName">
+                                Password: <input name="password" id="password">
+                                <input type="submit" value="Sign up">
+                            </form>
+                        </div>
+                    </div>
+                    <hr>
                 </div>
-                <div class="col-md-10 col-sm-9">
-                    Sign Up
-                    <form name="signUpForm" action="/auth/signUp" method="post">
-                        Username: <input name="userName" id="userName">
-                        Password: <input name="password" id="password">
-                        <input type="submit" value="Sign up">
-                    </form>
-                </div>
-              </div>
-              <hr>
-              <!--/stories-->
             </div>
-          </div>
         </div><!--/col-12-->
-      </div>
     </div>
-    <hr>
-    <hr>
-    <hr>
-    <div id="mocha"></div> <!-- 1 -->
-    <script src="mocha.js"></script>
-    <script src="chai.js"></script>
-    <script>
-        mocha.ui('bdd'); // 2
-        mocha.reporter('html'); // 3
-        var expect = chai.expect; // 4
-    </script>
-    <script src="tests.js"></script> <!-- 5 -->
-    <script>
-        mocha.run(); // 6
-    </script>
-    </body>
+</div>
+<hr>
+<hr>
+<hr>
+<div id="mocha"></div> <!-- 1 -->
+<script src="mocha.js"></script>
+<script src="chai.js"></script>
+<script>
+    mocha.ui('bdd'); // 2
+    mocha.reporter('html'); // 3
+    var expect = chai.expect; // 4
+</script>
+<script src="tests.js"></script> <!-- 5 -->
+<script>
+    mocha.run(); // 6
+</script>
+</body>
 </html>
