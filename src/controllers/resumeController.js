@@ -8,10 +8,10 @@ var resumeController = function(eventService, nav) {
         next();
     };
     var getIndex = function (req, res) {
-        var url = 'mongodb://localhost:27017/eventsApp';
+        var url = 'mongodb://localhost:27017/duberApp';
 
         mongodb.connect(url, function (err, db) {
-            var collection = db.collection('events');
+            var collection = db.collection('resume');
             collection.find({}).toArray(function (err, results) {
                 res.render('resumeView', {
                     title: 'resume',

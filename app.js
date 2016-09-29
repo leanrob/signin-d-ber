@@ -36,16 +36,16 @@ require('./src/config/passport')(app);
 // Set views directory
 app.set('views', 'src/views');
 
+// Set view engine
 app.set('view engine', 'ejs');
 
-// Telling '/Books' that it uses resumeRouter
+// Telling '/resume' that it uses resumeRouter
 app.use('/resume', resumeRouter);
 app.use('/Auth', authRouter);
 
 // Navigation setup
 app.get('/', function(req, res) {
     res.render('index', {
-        title: 'Hello from render',
         nav: [{
             Link: '/resume',
             Text: 'Resume'
@@ -53,11 +53,12 @@ app.get('/', function(req, res) {
     });
 });
 
+// Logout route
 app.get('/logout', function(req, res){
     req.logout();
     res.redirect('/');
 });
 
-app.listen(process.env.PORT || 1337, function(err) {
+app.listen(port, function(err) {
     console.log('running server on port ' + port);
 });

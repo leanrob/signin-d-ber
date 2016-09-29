@@ -2,9 +2,12 @@ var gulp = require('gulp');
 var jshint = require('gulp-jshint');
 var jscs = require('gulp-jscs');
 var nodemon = require('gulp-nodemon');
+var exec = require('child_process').exec;
 
 var jsFiles = ['*.js', 'src/**/*/js'];
 
+// Gulp task for JSHint and JSCS
+// Coding style and linting
 gulp.task('style', function() {
     return gulp.src(jsFiles)
        .pipe(jshint())
@@ -14,6 +17,7 @@ gulp.task('style', function() {
        .pipe(jscs());
 });
 
+// Code injection
 gulp.task('inject', function() {
     var wiredep = require('wiredep').stream;
     var inject = require('gulp-inject');
@@ -35,8 +39,19 @@ gulp.task('inject', function() {
         .pipe(gulp.dest('./src/views'));
 });
 
-// runs style and inject first
-gulp.task('serve', ['style', 'inject'], function() {
+// Start a mongo server with a child-process
+gulp.task('mongo', function() {
+    exec('mongod', function (err, stdout, stderr) {
+        console.log(stdout);
+        console.log(stderr);
+        cb(err);
+    })
+});
+
+// Serve sets up the server in port 1337
+// It first runs style and inject first
+// <gulp serve> to start application
+gulp.task('serve', ['style', 'inject', 'mongo'], function() {
     var options = {
         script: 'app.js',
         delayTime: 1,

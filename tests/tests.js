@@ -16,7 +16,7 @@
 //             firstName: "Full Name",
 //             lastName : "Last Name",
 //             password : "pass11"
-//         });
+//         });-
 //         user.save(done)
 //     });
 //     describe('Login test', function () {

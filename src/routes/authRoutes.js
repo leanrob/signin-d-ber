@@ -12,11 +12,22 @@ var passport = require('passport');
 // TODO: Add parsing for emails instead of usernames
 
 var router = function() {
-    // routhe for user to sign-up
+
+    // Setting up Auth routes
+    signUpRoute();
+    signInRoute();
+    profileRoute();
+
+    return authRouter
+};
+
+// Sign Up Route connecting to mongoDB and creating a new user
+// Routes to /resume when completed
+var signUpRoute = function() {
     authRouter.route('/signUp')
         .post(function(req, res) {
             console.log(req.body);
-            var url = 'mongodb://leanrob:leanrob@ds017582.mlab.com:17582/duber-rob-byrne';
+            var url = 'mongodb://localhost:27017/eventsApp';
             mongodb.connect(url, function(err, db) {
                 var collection = db.collection('users');
                 // TODO: Change with full user when it is created
@@ -31,20 +42,21 @@ var router = function() {
                 });
             });
         });
+};
+
+// Sign In Route authenticates the inputs using PassportJS
+// Routes to /resume when completed
+var signInRoute = function() {
     authRouter.route('/signIn')
         .post(passport.authenticate('local', {
             failureRedirect: '/'
         }), function(req, res) {
             res.redirect('/resume');
         });
+};
 
-    // authRouter.route('/logout')
-    //     .get('/logout', function(req, res){
-    //         req.logout();
-    //         res.redirect('/');
-    //     });
-
-    // Secured profile route
+// Profile Route simply displays the profile of the logged in user
+var profileRoute = function() {
     authRouter.route('/profile')
         .all(function (req, res, next) {
             if (!req.user) {
@@ -55,7 +67,6 @@ var router = function() {
         .get(function(req, res) {
             res.json(req.user);
         });
-    return authRouter
 };
 
 module.exports = router;

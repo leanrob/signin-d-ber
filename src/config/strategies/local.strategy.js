@@ -8,7 +8,7 @@ module.exports = function() {
         passwordField: 'password'
     },
     function(username, password, done) {
-        var url = 'mongodb://leanrob:leanrob@ds017582.mlab.com:17582/duber-rob-byrne';
+        var url = 'mongodb://localhost:27017/eventsApp';
         mongodb.connect(url, function (err, db) {
             var collection = db.collection('users');
             collection.findOne({
@@ -24,13 +24,5 @@ module.exports = function() {
             });
         });
         // TODO: add the bcrypt and crypto stuff to this for password hashing
-
-        // This is where we would check the DB for username and password
-        // var user = {
-        //     userName: username,
-        //     password: password
-        // };
-        //
-        // done(null, user);
     }));
 };
