@@ -58,6 +58,6 @@ app.get('/logout', function(req, res){
     res.redirect('/');
 });
 
-app.listen(port, function(err) {
+app.listen(process.env.PORT || 1337, function(err) {
     console.log('running server on port ' + port);
 });
