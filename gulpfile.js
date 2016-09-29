@@ -1,88 +1,52 @@
-"use strict";
-
 var gulp = require('gulp');
-var connect = require('gulp-connect'); // Runs a local dev server
-var open = require('gulp-open'); // Open a URL in a web browser
-var browserify = require('browserify'); // Bundles JS
-var reactify = require('reactify');  // Transforms React JSX to JS
-var source = require('vinyl-source-stream'); // Text streams with Gulp
-var concat = require('gulp-concat'); // Concatenates files
-var lint = require('gulp-eslint'); // Lint JS files
+var jshint = require('gulp-jshint');
+var jscs = require('gulp-jscs');
+var nodemon = require('gulp-nodemon');
 
-var config = {
-	port: 9005,
-	devBaseUrl: 'http://localhost',
-	paths: {
-		html: './src/*.html',
-		js: './src/**/*.js',
-		images: './src/images/*',
-		css: [
-      		'node_modules/bootstrap/dist/css/bootstrap.min.css',
-      		'node_modules/bootstrap/dist/css/bootstrap-theme.min.css'
-    	],
-		dist: './dist',
-		mainJs: './src/main.js'
-	}
-}
+var jsFiles = ['*.js', 'src/**/*/js'];
 
-//Start a local development server
-gulp.task('connect', function() {
-	connect.server({
-		root: ['dist'],
-		port: config.port,
-		base: config.devBaseUrl,
-		livereload: true
-	});
+gulp.task('style', function() {
+    return gulp.src(jsFiles)
+       .pipe(jshint())
+       .pipe(jshint.reporter('jshint-stylish', {
+            verbose: true
+        }))
+       .pipe(jscs());
 });
 
-gulp.task('open', ['connect'], function() {
-	gulp.src('dist/index.html')
-		.pipe(open('', { url: config.devBaseUrl + ':' + config.port + '/'}));
+gulp.task('inject', function() {
+    var wiredep = require('wiredep').stream;
+    var inject = require('gulp-inject');
+
+    var injectSrc = gulp.src(['./public/css/*.css', './public/js/*.js'], {read: false});
+    var injectOptions = {
+        ignorePath: '/public'
+    };
+
+    var options = {
+        bowerJson: require('./bower.json'),
+        directory: './public/lib',
+        ignorePath: '../../public'
+    };
+
+    return gulp.src('./src/views/*.html')
+        .pipe(wiredep(options))
+        .pipe(inject(injectSrc, injectOptions))
+        .pipe(gulp.dest('./src/views'));
 });
 
-gulp.task('html', function() {
-	gulp.src(config.paths.html)
-		.pipe(gulp.dest(config.paths.dist))
-		.pipe(connect.reload());
+// runs style and inject first
+gulp.task('serve', ['style', 'inject'], function() {
+    var options = {
+        script: 'app.js',
+        delayTime: 1,
+        env: {
+            'PORT': 1337
+        },
+        watch: jsFiles
+    };
+    return nodemon(options)
+        .on('restart', function(ev) {
+            console.log('Restarting.....');
+        });
 });
-
-gulp.task('js', function() {
-	browserify(config.paths.mainJs)
-		.transform(reactify)
-		.bundle()
-		.on('error', console.error.bind(console))
-		.pipe(source('bundle.js'))
-		.pipe(gulp.dest(config.paths.dist + '/scripts'))
-		.pipe(connect.reload());
-});
-
-gulp.task('css', function() {
-	gulp.src(config.paths.css)
-		.pipe(concat('bundle.css'))
-		.pipe(gulp.dest(config.paths.dist + '/css'));
-});
-
-// Migrates images to dist folder
-// Note that I could even optimize my images here
-gulp.task('images', function () {
-    gulp.src(config.paths.images)
-        .pipe(gulp.dest(config.paths.dist + '/images'))
-        .pipe(connect.reload());
-
-    //publish favicon
-    gulp.src('./src/favicon.ico')
-        .pipe(gulp.dest(config.paths.dist));
-});
-
-gulp.task('lint', function() {
-	return gulp.src(config.paths.js)
-		.pipe(lint({config: 'eslint.config.json'}))
-		.pipe(lint.format());
-});
-
-gulp.task('watch', function() {
-	gulp.watch(config.paths.html, ['html']);
-	gulp.watch(config.paths.js, ['js', 'lint']);
-});
-
-gulp.task('default', ['html', 'js', 'css', 'images', 'lint', 'open', 'watch']);
