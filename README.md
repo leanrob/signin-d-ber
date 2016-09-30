@@ -19,7 +19,7 @@ or another good MongoDB setup guide...
 
 Then once mongodb is added to your path. Open a new terminal window and type...
 
-```mongod```
+    mongod
 
 Keep this window open while running the app
 
@@ -27,7 +27,7 @@ Keep this window open while running the app
 
 Open another terminal window and type the following...
 
-```gulp serve```
+    gulp serve
 
 ### Get that web browser crackin'
 
