@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var jshint = require('gulp-jshint');
 var jscs = require('gulp-jscs');
 var nodemon = require('gulp-nodemon');
-var exec = require('child_process').exec;
+// var exec = require('child_process').exec;
 
 var jsFiles = ['*.js', 'src/**/*/js'];
 
@@ -38,20 +38,19 @@ gulp.task('inject', function() {
         .pipe(inject(injectSrc, injectOptions))
         .pipe(gulp.dest('./src/views'));
 });
-
+// Can be uncommented to add mongoDB automation in the future
 // Start a mongo server with a child-process
-gulp.task('mongo', function() {
-    exec('mongod', function (err, stdout, stderr) {
-        console.log(stdout);
-        console.log(stderr);
-        cb(err);
-    })
-});
+// gulp.task('mongo', function() {
+//     exec('mongod', function (err, stdout, stderr) {
+//         console.log(stdout);
+//         console.log(stderr);
+//     });
+// });
 
 // Serve sets up the server in port 1337
 // It first runs style and inject first
 // <gulp serve> to start application
-gulp.task('serve', ['style', 'inject', 'mongo'], function() {
+gulp.task('serve', ['style', 'inject'], function() {
     var options = {
         script: 'app.js',
         delayTime: 1,

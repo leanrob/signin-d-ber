@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
+    "expect": "^1.20.2",
     "gulp": "^3.9.1",
     "gulp-inject": "^4.1.0",
     "gulp-jscs": "^4.0.0",

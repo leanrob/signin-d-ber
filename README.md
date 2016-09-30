@@ -7,13 +7,21 @@
 
 ## How do you run this code
 
-### Start MongoDB
+### Pre requirement: MongoDB
 
-Open a terminal window and type the following...
+MongoDB must be installed on the host machine, it can be done following this link... 
+
+[MongoDB Installation Guide](https://docs.mongodb.com/manual/installation/)
+
+or another good MongoDB setup guide...
+
+[MongoDB For Beginners: Introduction And Installation](http://www.hongkiat.com/blog/webdev-with-mongodb-part1/)
+
+Then once mongodb is added to your path. Open a new terminal window and type...
 
 ```mongod```
 
-Keep this window open while the app is running.
+Keep this window open while running the app
 
 ### Run the app with Gulp
 

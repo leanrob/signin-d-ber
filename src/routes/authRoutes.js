@@ -26,6 +26,7 @@ var router = function() {
 var signUpRoute = function() {
     authRouter.route('/signUp')
         .post(function(req, res) {
+            res.json({ test: 'complete'});
             console.log(req.body);
             var url = 'mongodb://localhost:27017/eventsApp';
             mongodb.connect(url, function(err, db) {
