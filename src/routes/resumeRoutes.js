@@ -3,17 +3,17 @@
  */
 var express = require('express');
 
-var eventGroupRouter = express.Router();
+var resumeRouter = express.Router();
 
 var mongodb = require('mongodb').MongoClient;
 
 var router = function (nav) {
-    var eventsController = require('../controllers/resumeController')(null, nav);
+    var resumeController = require('../controllers/resumeController')(null, nav);
     // Check to see if signed in first
-    eventGroupRouter.use(eventsController.middleware);
-    eventGroupRouter.route('/')
-        .get(eventsController.getIndex);
-    return eventGroupRouter;
+    resumeRouter.use(resumeController.middleware);
+    resumeRouter.route('/')
+        .get(resumeController.getIndex);
+    return resumeRouter;
 };
 
 module.exports = router;

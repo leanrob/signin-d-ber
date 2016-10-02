@@ -16,6 +16,7 @@ var nav = [{
 // Requiring the created routes and passing them nav
 var resumeRouter = require('./src/routes/resumeRoutes')(nav);
 var authRouter = require('./src/routes/authRoutes')(nav);
+var registrationRouter = require('./src/routes/registrationRoutes')(nav);
 
 /* Start Middleware */
 // Node will check the public and src views directories before all else...
@@ -39,9 +40,10 @@ app.set('views', 'src/views');
 // Set view engine
 app.set('view engine', 'ejs');
 
-// Telling '/resume' that it uses resumeRouter
+// Telling '/resume' that it uses registrationRouter
 app.use('/resume', resumeRouter);
 app.use('/Auth', authRouter);
+app.use('/register', registrationRouter);
 
 // Navigation setup
 app.get('/', function(req, res) {

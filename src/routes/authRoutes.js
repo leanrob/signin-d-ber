@@ -26,7 +26,6 @@ var router = function() {
 var signUpRoute = function() {
     authRouter.route('/signUp')
         .post(function(req, res) {
-            res.json({ test: 'complete'});
             console.log(req.body);
             var url = 'mongodb://localhost:27017/eventsApp';
             mongodb.connect(url, function(err, db) {
@@ -49,9 +48,11 @@ var signUpRoute = function() {
 // Routes to /resume when completed
 var signInRoute = function() {
     authRouter.route('/signIn')
-        .post(passport.authenticate('local', {
+        .post(
+            passport.authenticate('local', {
             failureRedirect: '/'
-        }), function(req, res) {
+        }),
+            function(req, res) {
             res.redirect('/resume');
         });
 };
